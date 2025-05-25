@@ -13,6 +13,10 @@ public class UIController : MonoBehaviour
         Application.Quit();
         Debug.Log("Выход успешен!");
     }
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
     public void Settings()
     {
         SceneManager.LoadScene(1);

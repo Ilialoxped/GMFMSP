@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private Transform groundCheckPoint;
 
-    [Header("Movement Settings")]
+    [Header("Camera Settings")]
     [SerializeField] private float mouseSensitivity = 2f;
     [SerializeField] float maxVerticalAngle = 80f;
     [SerializeField] Transform cameraTransform;
@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour
 
     private void CheckGrounded()
     {
-        // Проверяем землю через Raycast
+       
         _isGrounded = Physics.Raycast(groundCheckPoint.position, Vector3.down, groundCheckDistance, groundLayer);
     }
 
