@@ -8,17 +8,21 @@ public class PlayerController : MonoBehaviour
     private Rigidbody _rb;
     private PlayerInput _input;
     private bool _isGrounded;
-    [Header("Movement Settings")]
+    [Header("Настройки движения")]
     [SerializeField] public float moveSpeed;
     [SerializeField] private float groundCheckDistance = 0.2f;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private Transform groundCheckPoint;
 
-    [Header("Camera Settings")]
+    [Header("Настройки камеры")]
     [SerializeField] private float mouseSensitivity = 2f;
     [SerializeField] float maxVerticalAngle = 80f;
     [SerializeField] Transform cameraTransform;
 
+    [Header("Настройки спавна врагов")]
+    [SerializeField] private GameObject enemyPrefab; // Префаб врага
+    [SerializeField] private float spawnDistance = 5f; // Дистанция спавна перед игроком
+    [SerializeField] private Transform enemyContainer; // Контейнер для врагов (опционально)
 
 
 
@@ -27,6 +31,7 @@ public class PlayerController : MonoBehaviour
     {
         _input = new PlayerInput();
         _input.Player.Jump.performed += context => CheckedJump();
+        _input.Player.SpawnEnemy.performed += context => SpawnEnemy();
 
 
         Cursor.lockState = CursorLockMode.Locked;
@@ -87,6 +92,12 @@ public class PlayerController : MonoBehaviour
         moveDirection.y = _rb.velocity.y;
 
         _rb.velocity = moveDirection;
+    }
+    private void SpawnEnemy()
+    {
+        Vector3 spawnPosition = transform.position + transform.forward * spawnDistance;
+        GameObject newEnemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+
     }
     private void MouseLook()
     {

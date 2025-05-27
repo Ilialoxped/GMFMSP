@@ -21,5 +21,12 @@ public class UIController : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
-
+    public void Question()
+    {
+        SceneManager.LoadScene(3);
+    }
+    public void Secret()
+    {
+        SceneManager.LoadScene(4);
+    }
 }
