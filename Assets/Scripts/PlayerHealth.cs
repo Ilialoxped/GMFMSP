@@ -5,12 +5,12 @@ public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private int MaxPlayerHP = 3;
     [SerializeField] public int CurrnetPlayerHp;
-    
+    //Присваеваем хп
     void Start()
     {
         CurrnetPlayerHp = MaxPlayerHP;
     }
-
+    //Проверка еа хп
     private void Update()
     {
         if (CurrnetPlayerHp <= 0)
@@ -18,19 +18,15 @@ public class PlayerHealth : MonoBehaviour
             Die();
         }
     }
-
+    //Смерть игрока
     private void Die()
     {
         SceneManager.LoadScene(0);
     }
-    private void OnCollisionEnter(Collision collision)
-    {
-        
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            
-                CurrnetPlayerHp--;
-            
+    //Для EnemyAttack
+    public void TakeDamage(int damage) {
+        {                      
+                CurrnetPlayerHp -= damage;
         }
     }
     

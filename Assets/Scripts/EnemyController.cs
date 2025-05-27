@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    public Transform _player;
+    private Transform _player;
     [SerializeField] private float speed = 3f;
     [SerializeField] private float enemyHP = 1f;
     private float CurrentEnemyHP;
+    //Тут хп присваеваем и находим игрока через тэг и его трансформ
     void Start()
     {
         CurrentEnemyHP = enemyHP;
         _player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
-    // Update is called once per frame
+    //Враг ищет игрока и проверка на хп
     void Update()
     {
         transform.position = Vector3.MoveTowards(transform.position, _player.position, speed * Time.deltaTime);
@@ -24,8 +25,10 @@ public class EnemyController : MonoBehaviour
         }
         
     }
+    //Смерть врага
     private void Die()
     {
+    
         Destroy(gameObject);
     }
 }
