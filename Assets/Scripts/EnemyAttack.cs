@@ -1,5 +1,4 @@
 using UnityEngine;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class EnemyAttack : MonoBehaviour
 {
@@ -32,17 +31,17 @@ public class EnemyAttack : MonoBehaviour
     {
         return Vector3.Distance(transform.position, _player.position) <= attackRange;
     }
-
+    //Атака с дебагом
     private void Attack()
     {
         _playerHealth.TakeDamage(damage);
         _lastAttackTime = Time.time;
 
-        // Визуализация атаки (можно добавить анимацию)
+    
         Debug.Log(gameObject.name + " атаковал игрока!");
     }
 
-    // Визуализация радиуса атаки в редакторе
+    //Радиус атаки в редакторе
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
