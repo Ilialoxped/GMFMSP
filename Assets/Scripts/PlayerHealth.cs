@@ -8,8 +8,8 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] public int CurrnetPlayerHp;
     public TextMeshProUGUI playerHptext;
 
-    [SerializeField] private AudioClip hitSound; // Звук удара
-    [SerializeField] private AudioSource audioSource; // Компонент для проигрывания звуков
+    [SerializeField] private AudioClip hitSound; 
+    [SerializeField] private AudioSource audioSource; 
     //Присваеваем хп
     void Start()
     {

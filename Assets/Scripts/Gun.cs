@@ -7,7 +7,10 @@ public class Gun : MonoBehaviour
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] public Transform firePoint;
     [SerializeField] private float bulletSpeed = 20f;
-    
+
+    [SerializeField] private AudioClip gunSound;
+    [SerializeField] private AudioSource audioSource;
+
 
     private void Start()
     {
@@ -19,7 +22,7 @@ public class Gun : MonoBehaviour
 
     private void Shoot()
     {
-       
+        audioSource.PlayOneShot(gunSound);
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
 
         
