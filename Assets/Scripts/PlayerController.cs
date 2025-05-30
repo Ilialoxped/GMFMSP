@@ -20,9 +20,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Transform cameraTransform;
 
     [Header("Настройки спавна врагов")]
-    [SerializeField] private GameObject enemyPrefab; // Префаб врага
-    [SerializeField] private float spawnDistance = 5f; // Дистанция спавна перед игроком
-    [SerializeField] private Transform enemyContainer; // Контейнер для врагов (опционально)
+    [SerializeField] private GameObject enemyPrefab; 
+    [SerializeField] private float spawnDistance = 5f; 
+    
 
 
 
@@ -43,11 +43,9 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();
-        if (groundCheckPoint == null)
-        {
-            groundCheckPoint = transform;
-            Debug.LogWarning("GroundCheckPoint not assigned! Using player transform.");
-        }
+        
+            
+        
     }
     private void Update()
     {

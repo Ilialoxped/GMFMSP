@@ -24,7 +24,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Attack",
+                    "name": "Fire",
                     "type": "Button",
                     "id": "94e51ec3-f8db-4dc8-96e4-43aaf7f86af0",
                     "expectedControlType": "Button",
@@ -191,7 +191,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "PC",
-                    "action": "Attack",
+                    "action": "Fire",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
